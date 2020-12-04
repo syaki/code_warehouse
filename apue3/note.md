@@ -51,7 +51,7 @@ int openat(int fd, const char *path, int oflag, ... /* mode_t mode */);
 
 下列可选：
 
-`O_APPEND`, `O_CLOSEXEC`, `O_CREATE`, `O_DIRECTORY`, `O_EXCL`, `O_NOCTTY`, `O_NOFOLLOW`, `O_NONBLOCK`, `O_SYNC`, `O_TRUNC`, `O_TTY_INIT`
+`O_APPEND`, `O_CLOSEXEC`, `O_CREAT`, `O_DIRECTORY`, `O_EXCL`, `O_NOCTTY`, `O_NOFOLLOW`, `O_NONBLOCK`, `O_SYNC`, `O_TRUNC`, `O_TTY_INIT`
 
 下面两个标志也是可选的：
 

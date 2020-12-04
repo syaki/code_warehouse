@@ -10,3 +10,9 @@
 
 纵向伸缩（scaling up）（垂直伸缩（vertical scaling），转向更强大的机器）和横向伸缩（scaling out） （水平伸缩（horizontal scaling）
 跨多台机器分配负载也称为“无共享（shared-nothing）”架构。
+
+## 数据模型与查询语言
+
+### 关系模型与文档模型
+
+现在最著名的数据模型可能是 `SQL` 。它基于 `Edgar Codd` 在 1970 年提出的关系模型【1】：数据被组织成关系（ `SQL` 中称作表），其中每个关系是元组（ `SQL` 中称作行)的无序集合。

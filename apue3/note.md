@@ -68,3 +68,49 @@ int openat(int fd, const char *path, int oflag, ... /* mode_t mode */);
 3. `path` 参数指定的是相对路径名， `fd` 具有特殊值 `AT_FDCWD` 。路径名在当前工作目录获得。
 
 `openat` 是 `POSIX.1` 新增的。让线程可以通过相对路径名打开目录中的文件。避免 `time-of-check-to-time-of-use` `TOCTTOU` 错误。
+
+`TOCTTOU` 的基本思想：两个基于文件的函数调用，第二个以来第一个调用的结果，那么程序是脆弱的。因为两次调用不是原子操作。
+
+文件名和路径名截断， `errno` 设置为 `ENAMETOOLONG`。
+
+`POSIX.1` 中，常量 `_POSIX_NO_TRUNC` 决定是截断还是返回一个错误。
+
+### `creat`
+
+```C
+#include <fcntl.h>
+
+int creat(const char *path, mode_t mode);
+```
+
+等效于：
+
+```C
+open(path, O_WRONLY | O_CREAT | O_TRUNC, mode);
+```
+
+`creat` 以只写方式打开所创建的文件。
+
+### `close`
+
+```C
+#include <unistd.h>
+
+int close(int fd);
+```
+
+关闭一个文件同时释放该进程加在该文件上的所有记录锁。
+
+进程终止时，内核自动关闭它所有的打开文件。
+
+### `lseek`
+
+每个打开的文件都有与其相关的 当前文件偏移量 `current file offset` 。一个非负整数，用以度量从文件开始处计算的字节数。读、写操作都从当前文件偏移量开始。
+
+打开文件时，除非指定 `O_APPEND` ，否则偏移量设为 0.
+
+```C
+#include <unistd.h>
+
+off_t lseek(int fd, off_t offset, int whence);
+```

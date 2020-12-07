@@ -16,3 +16,13 @@
 ### 关系模型与文档模型
 
 现在最著名的数据模型可能是 `SQL` 。它基于 `Edgar Codd` 在 1970 年提出的关系模型【1】：数据被组织成关系（ `SQL` 中称作表），其中每个关系是元组（ `SQL` 中称作行)的无序集合。
+
+### `NoSQL`
+
+不仅是 SQL（Not Only SQL）
+
+混合持久化 `polyglot persistence`
+
+模型之间的不连贯有时被称为阻抗不匹配（impedance mismatch）
+
+对象关系映射（ORM object-relational mapping） 框架可以减少这个转换层所需的样板代码的数量，但是它们不能完全隐藏这两个模型之间的差异。

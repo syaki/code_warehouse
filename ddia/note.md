@@ -26,3 +26,25 @@
 模型之间的不连贯有时被称为阻抗不匹配（impedance mismatch）
 
 对象关系映射（ORM object-relational mapping） 框架可以减少这个转换层所需的样板代码的数量，但是它们不能完全隐藏这两个模型之间的差异。
+
+### 图数据模型
+
+一个图由两种对象组成：顶点（`vertices`）（也称为节点（`nodes`） 或实体（`entities`）），和边（`edges`）（ 也称为关系（`relationships`）或弧 （`arcs`） ）。多种数据可以被建模为一个图形。
+
+在属性图模型中，每个顶点（vertex） 包括：
+
+唯一的标识符
+
+-   一组 出边（outgoing edges）
+-   一组 入边（ingoing edges）
+-   一组属性（键值对）
+-   每条 边（edge） 包括：
+
+唯一标识符
+
+-   边的起点/尾部顶点（tail vertex）
+-   边的终点/头部顶点（head vertex）
+-   描述两个顶点之间关系类型的标签
+-   一组属性（键值对）
+
+## 存储与检索

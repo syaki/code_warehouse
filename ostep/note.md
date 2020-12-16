@@ -202,3 +202,26 @@ else // TLB Miss
 <br />共享代码页减少内存开销。<br />
 <br />访问 TLB 容易成为 CPU 流水线瓶颈，尤其是所谓的物理地址索引缓存 physically-idnexed cache。有了这种缓存，地址转换必须发生在访问该缓存之前，会让操作变慢。用虚拟地址直接访问缓存，避免地址转换。虚拟地址索引缓存 virtually-indexed cache。<br />
 
+#### 更小的表
+
+大内存页导致每页内的浪费，内部碎片 `internal fragmentation` 。
+
+分页和分段，杂合 `hydrid`
+
+多级页表 `multi-level page table` 。
+
+将页表分成页大小的单元。如果整页的页表项 PT`E 无效，就完全不分配该页的页表。为了追踪页表的页是否有效（以及如果有效，它在内存中的位置），使用了名为页目录 `page directory` 的新结构。页目录可以告诉你页表的页在哪里，或者页表的整个页不包含有效页。
+
+页目录项 `Directory Entries` `PDE` 。 `PDE` 拥有有效位 `valid bit` 和页帧号 `page frame number` `PFN` ，类似于 `PTE` 。
+
+构建数据结构时，考虑时间和空间的折中 `time-space trade-off` 。
+
+反向页表 `inverted page table`
+
+内核虚拟内存 `kernel virtual memory`
+
+### 超越物理内存：机制
+
+内存层级 `memory hierarchy`
+
+硬盘 `hard disk drive`

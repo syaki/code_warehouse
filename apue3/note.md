@@ -114,3 +114,12 @@ int close(int fd);
 
 off_t lseek(int fd, off_t offset, int whence);
 ```
+
+对参数 `offset` 的解释与参数 `whence` 的值有关。
+
+- `whence` 是 `SEEK_SET` ，则将文件的偏移量设置为距文件开始处 `offset` 个字节。
+
+- `whence` 是 `SEEK_CUR` ，则将文件的偏移量设置为当前值加 `offset` ，可为正或负。
+
+- `whence` 是 `SEEK_END` ，则将文件的偏移量设置为文件长度加上 `offset` ，可为正或负。
+

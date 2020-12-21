@@ -225,3 +225,43 @@ else // TLB Miss
 内存层级 `memory hierarchy`
 
 硬盘 `hard disk drive`
+
+选择哪些页被交换出或被替换的过程，页交换策略 `page-replacement policy` 。
+
+操作系统设置高水位线 `High Watermark` ,  `HW` 和低水位线 `Low Watermark` , `LW` ，来帮助决定时从内存中清除页。
+
+少于 `LW` 个页可用时，后台负责释放内存的线程开始运行，直到有 `HW` 个可用的物理页。
+
+交换守护进程 `swap daemon` 或页守护进程 `page daemon` 。
+
+### 超越物理内存：策略
+
+由于内存压力 `memory pressure` 迫使操作系统换出 `paging out` 一些页，腾出空间。确定要踢出 `evict` 哪些页封装在操作系统的替换策略 `replacement policy` 中。
+
+平均内存访问时间 `Average Memory Access Time` ， `AMAT` ，计算机架构师衡量硬件缓存的指标。
+
+#### 最优替换策略
+
+提换内存中在最远将来才会被访问到的页。
+
+冷启动未命中 `cold-start miss` ，强制未命中 `compulsory miss`
+
+未命中分为 3 类：强制性、容量和冲突未命中。
+
+`FIFO`
+
+`Random`
+
+`LRU` ： `Least-Recently-Used` ，最少最近使用。利用历史数据，局部性原则 `principle of locality`
+
+`LFU` ： `Least-Frequently-Used` ，最不经常使用。
+
+相反的 `MFU` 最经常使用策略 和 `MRU` 最近使用策略。
+
+局部性原则：空间局部性和时间局部性
+
+#### 近似 `LRU`
+
+硬件增加一个使用位 `use bit` ，或引用位 `reference bit` 。
+
+时钟算法 `clock algorithm`

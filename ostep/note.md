@@ -265,3 +265,15 @@ else // TLB Miss
 硬件增加一个使用位 `use bit` ，或引用位 `reference bit` 。
 
 时钟算法 `clock algorithm`
+
+#### 其他策略
+
+页面替换不是虚拟内存子系统的唯一策略。操作系统必须决定何时将页载入内存。页选择 page paging 策略。
+
+大多数情况下按需分页 demand paging 。猜测一个页面将被使用，提前载入，称为预取 prefetching 。
+
+#### 抖动 thrashing
+
+内存超额请求，系统不断进行换页。
+
+给定一组进程，系统可以决定不运行部分进程，希望减少的进程工作集能放入内存，称为准入控制 admission control 。
